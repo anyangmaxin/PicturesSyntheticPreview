@@ -1,25 +1,134 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 @section css{
     <style type="text/css">
+        .syntheticDiv {
+            height: 1000px;
+        }
 
+        .baseMap {
+            position: relative;
+            border: 1px solid red;
+            margin-left: 200px;
+                 margin-top: 200px;
+            display: inline-block;
+            width:600px;
+            height:850px;
+        }
+
+        .baseImage {
+            position: absolute;
+            /*width:300px;
+            height:600px;*/
+            margin: auto;
+        }
+
+        .activeImages {
+            position: absolute;
+            /*position: relative;*/
+            width: 300px;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .activeImages-QR {
+            width: 150px;
+            height: 150px;
+        }
+
+
+          .wechatnoDiv {
+            position: absolute;
+            /*position: relative;*/
+            width: 300px;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .operation {
+            margin-top: 20px;
+        }
     </style>
-    }
-<div>
-    <div class="baseMap">
-        <img src="~/Upload/Image/MonitorTemplate/MonitorImg.png" class="baseImage" />
+}
+
+
+@using (Html.BeginForm())
+{
+    <div>
+        <div class="syntheticDiv">
+
+            <div class="baseMap">
+                <img src="~/Upload/Image/MonitorTemplate/MonitorImg.png" class="baseImage" />
+                <div class="activeImages">
+                    <img src="~/Upload/Image/QR/QR.png" class="activeImages-QR" />
+                </div>
+                <div class="wechatnoDiv"></div>
+            </div>
+
+        </div>
+        <br />
+
     </div>
+    <div class="operation">
+        <dl>
+            <dt>二维码</dt>
+            <dd><p><span>距离左侧：</span><input type="text" value="0" class="inputleft" /><span>PX</span></p></dd>
+            <dd><p><span>距离顶部：</span><input type="text" value="0" class="inputtop" /><span>PX</span></p></dd>
+        </dl>
 
-    <div class="activeImages">
+        <dl>
+            <dt>微信号:</dt>
+            <dd><p><span class="defaultText"></span></p></dd>
+            <dd><p><span></span><input type="text" value="我是默认文本" class="defaultTextInput" /></p></dd>
+            <dd><p><span>距离左侧：</span><input type="text" value="0" class="textleft" /><span>PX</span></p></dd>
+            <dd><p><span>距离顶部：</span><input type="text" value="0" class="texttop" /><span>PX</span></p></dd>
+        </dl>
 
+        <dl>
+            <dt>预览</dt>
+            <dd><p><input type="button" value="预览" class="btnPreview" /></p></dd>
+        </dl>
     </div>
-
-</div>
-
+}
 
 @section scripts{
+    <script type="text/javascript">
+        $(function () {
+            getDefaultText();
+            $(".btnPreview").on("click", function () {
 
-    }
+                getDefaultText();
+
+                //#region  微信号
+                var wechatLeft = $(".textleft").val();
+                var wechatTop = $(".texttop").val();
+                $(".wechatnoDiv").animate({ left: wechatLeft + "px" }, 2000, function () {
+                    $(this).animate({ top: wechatTop + "px" }, 2000);
+                });
+                //#endregion
+
+                //#region  二维码
+                //底图的位置
+                var baseX = $(".baseImage").offset().left;
+                var baseY = $(".baseImage").offset().top;
+
+                var leftpx = $(".inputleft").val();
+                var toppx = $(".inputtop").val();
+
+                $(".activeImages").animate({ left: leftpx + "px" }, 2000, function () {
+                    $(this).animate({ top: toppx + "px" }, 2000);
+                });
+                //#endregion          
+            });
+        });
+
+        function getDefaultText() {
+            var wechatNo = $(".defaultTextInput").val();
+            $(".defaultText,.wechatnoDiv").html(wechatNo);        
+        }
+    </script>
+}
 
