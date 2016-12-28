@@ -118,8 +118,9 @@
             </dd>
             <dd>
                 <p>
-                    <span>字体颜色：</span>
-                    <input type="text" class="minicolors minicolors-input" value="#FF0000" id="textfontcolor" size="7">
+                    <span>字体颜色：</span>             
+                    <input type="hidden" id="textfontcolor" class="demo minicolors-input" value="#000000" size="7">
+                    <input type="text" id="hiddenfontcolorvalue" value="" />
                 </p>
             </dd>
         </dl>
@@ -135,6 +136,8 @@
 <script src="~/Tools/jquery-minicolors/jquery.minicolors.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
+            getDefaultText();
+
             $.minicolors = {
                 defaults: {
                     animationSpeed: 50,
@@ -144,7 +147,8 @@
                     control: 'hue',
                     dataUris: true,
                     defaultValue: '',
-                    format: 'hex',
+                    // format: 'hex',//色值格式 十六进制
+                    format: 'rgb', //rgb格式  返回的是rgb(255,255,255)
                     hide: null,
                     hideSpeed: 100,
                     inline: false,
@@ -165,13 +169,11 @@
                       //if (!document.getElementById('box1bct').checked) {
                       //    $("#box1ul").css("background", hex);
                       //}
-                    
+                      $("#hiddenfontcolorvalue").val(hex);
                   }
               });
 
-
-
-            getDefaultText();
+ 
             $(".btnPreview").on("click", function () {
 
                 getDefaultText();
@@ -182,8 +184,9 @@
                 var wechatTop = $(".texttop").val();
                 var wechatFontFamily = $(".textfontfamily").val();
                 var wechatFontSize = $(".textfontsize").val();
+                var textfontcolor=$("#hiddenfontcolorvalue").val();
                 //设置宽度高度
-                $(".wechatnoDiv").css({ "font-family": wechatFontFamily,"font-size":wechatFontSize+"px" });
+                $(".wechatnoDiv").css({ "font-family": wechatFontFamily,"font-size":wechatFontSize+"px","color":textfontcolor });
                 $(".wechatnoDiv").animate({ left: wechatLeft + "px" }, 2000, function () {
                     $(this).animate({ top: wechatTop + "px" }, 2000);
                 });
