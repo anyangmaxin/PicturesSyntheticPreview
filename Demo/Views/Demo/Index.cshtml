@@ -11,10 +11,10 @@
             position: relative;
             border: 1px solid red;
             margin-left: 200px;
-                 margin-top: 200px;
+            margin-top: 200px;
             display: inline-block;
-            width:600px;
-            height:850px;
+            width: 600px;
+            height: 850px;
         }
 
         .baseImage {
@@ -27,19 +27,15 @@
         .activeImages {
             position: absolute;
             /*position: relative;*/
-            width: 300px;
             left: 0;
             top: 0;
             z-index: 1;
         }
 
         .activeImages-QR {
-            width: 150px;
-            height: 150px;
         }
 
-
-          .wechatnoDiv {
+        .wechatnoDiv {
             position: absolute;
             /*position: relative;*/
             width: 300px;
@@ -75,6 +71,7 @@
     <div class="operation">
         <dl>
             <dt>二维码</dt>
+            <dd><p><span>二维码宽度：</span><input type="text" value="0" class="QRWidth" /><span>PX</span></p></dd>
             <dd><p><span>距离左侧：</span><input type="text" value="0" class="inputleft" /><span>PX</span></p></dd>
             <dd><p><span>距离顶部：</span><input type="text" value="0" class="inputtop" /><span>PX</span></p></dd>
         </dl>
@@ -85,6 +82,7 @@
             <dd><p><span></span><input type="text" value="我是默认文本" class="defaultTextInput" /></p></dd>
             <dd><p><span>距离左侧：</span><input type="text" value="0" class="textleft" /><span>PX</span></p></dd>
             <dd><p><span>距离顶部：</span><input type="text" value="0" class="texttop" /><span>PX</span></p></dd>
+            <dd><p><span>字体：</span><input type="text" value="0" class="texttop" /><span>PX</span></p></dd>
         </dl>
 
         <dl>
@@ -103,8 +101,11 @@
                 getDefaultText();
 
                 //#region  微信号
+                var wechatWidth = $(".QRWidth").val();
                 var wechatLeft = $(".textleft").val();
                 var wechatTop = $(".texttop").val();
+                //设置宽度高度
+                $(".activeImages-QR").css({ "width": wechatWidth, "height": wechatWidth });
                 $(".wechatnoDiv").animate({ left: wechatLeft + "px" }, 2000, function () {
                     $(this).animate({ top: wechatTop + "px" }, 2000);
                 });
@@ -121,13 +122,12 @@
                 $(".activeImages").animate({ left: leftpx + "px" }, 2000, function () {
                     $(this).animate({ top: toppx + "px" }, 2000);
                 });
-                //#endregion          
+                //#endregion
             });
         });
-
         function getDefaultText() {
             var wechatNo = $(".defaultTextInput").val();
-            $(".defaultText,.wechatnoDiv").html(wechatNo);        
+            $(".defaultText,.wechatnoDiv").html(wechatNo);
         }
     </script>
 }
