@@ -82,6 +82,20 @@
             <dd><p><span></span><input type="text" value="我是默认文本" class="defaultTextInput" /></p></dd>
             <dd><p><span>距离左侧：</span><input type="text" value="0" class="textleft" /><span>PX</span></p></dd>
             <dd><p><span>距离顶部：</span><input type="text" value="0" class="texttop" /><span>PX</span></p></dd>
+            <dd>
+                <p>
+                    <span>字体：</span>
+                    <select class="textfontfamily">
+                        <option value="SimSun">宋体</option>
+                        <option value="SimHei">黑体</option>
+                        <option value="Microsoft YaHei">微软雅黑</option>
+                        <option value="FangSong">仿宋</option>
+                        <option value="FangSong_GB2312">仿宋_GB2312</option>
+                        <option value="KaiTi">楷体</option>
+                        <option value="KaiTi_GB2312">楷体_GB2312</option>
+                    </select>
+                </p>
+            </dd>
             <dd><p><span>字体：</span><input type="text" value="0" class="texttop" /><span>PX</span></p></dd>
         </dl>
 
@@ -101,11 +115,12 @@
                 getDefaultText();
 
                 //#region  微信号
-                var wechatWidth = $(".QRWidth").val();
+         
                 var wechatLeft = $(".textleft").val();
                 var wechatTop = $(".texttop").val();
+                var wechatFontFamily = $(".textfontfamily").val();
                 //设置宽度高度
-                $(".activeImages-QR").css({ "width": wechatWidth, "height": wechatWidth });
+                $(".wechatnoDiv").css({ "font-family": wechatFontFamily });
                 $(".wechatnoDiv").animate({ left: wechatLeft + "px" }, 2000, function () {
                     $(this).animate({ top: wechatTop + "px" }, 2000);
                 });
@@ -119,6 +134,8 @@
                 var leftpx = $(".inputleft").val();
                 var toppx = $(".inputtop").val();
 
+                var wechatWidth = $(".QRWidth").val();
+                $(".activeImages-QR").css({ "width": wechatWidth, "height": wechatWidth});
                 $(".activeImages").animate({ left: leftpx + "px" }, 2000, function () {
                     $(this).animate({ top: toppx + "px" }, 2000);
                 });
