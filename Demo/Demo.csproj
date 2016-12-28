@@ -102,6 +102,12 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Tools\jquery-minicolors\index.html" />
+    <Content Include="Tools\jquery-minicolors\jquery.minicolors.css" />
+    <Content Include="Tools\jquery-minicolors\jquery.minicolors.js" />
+    <Content Include="Tools\jquery-minicolors\jquery.minicolors.min.js" />
+    <Content Include="Tools\jquery-minicolors\jquery.minicolors.png" />
+    <Content Include="Tools\jquery-minicolors\without-bootstrap.html" />
     <Content Include="Upload\Image\MonitorTemplate\MonitorImg.png" />
     <Content Include="Upload\Image\QR\QR.png" />
     <Content Include="Web.config" />

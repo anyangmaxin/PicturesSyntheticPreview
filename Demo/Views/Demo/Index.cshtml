@@ -2,6 +2,7 @@
     ViewBag.Title = "Index";
 }
 @section css{
+<link href="~/Tools/jquery-minicolors/jquery.minicolors.css" rel="stylesheet" />
     <style type="text/css">
         .syntheticDiv {
             height: 1000px;
@@ -115,6 +116,12 @@
                     </select>
                 </p>
             </dd>
+            <dd>
+                <p>
+                    <span>字体颜色：</span>
+                    <input type="text" class="minicolors minicolors-input" value="#FF0000" id="textfontcolor" size="7">
+                </p>
+            </dd>
         </dl>
 
         <dl>
@@ -125,8 +132,45 @@
 }
 
 @section scripts{
+<script src="~/Tools/jquery-minicolors/jquery.minicolors.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
+            $.minicolors = {
+                defaults: {
+                    animationSpeed: 50,
+                    animationEasing: 'swing',
+                    change: null,
+                    changeDelay: 0,
+                    control: 'hue',
+                    dataUris: true,
+                    defaultValue: '',
+                    format: 'hex',
+                    hide: null,
+                    hideSpeed: 100,
+                    inline: false,
+                    keywords: '',
+                    letterCase: 'lowercase',
+                    opacity: false,
+                    position: 'bottom left',
+                    show: null,
+                    showSpeed: 100,
+                    theme: 'default',
+                    swatches: []
+                }
+            };
+
+            $('#textfontcolor').minicolors(
+              {
+                  change: function (hex, opacity) {
+                      //if (!document.getElementById('box1bct').checked) {
+                      //    $("#box1ul").css("background", hex);
+                      //}
+                    
+                  }
+              });
+
+
+
             getDefaultText();
             $(".btnPreview").on("click", function () {
 
