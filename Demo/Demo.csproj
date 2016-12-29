@@ -48,6 +48,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -274,10 +278,9 @@
     <Content Include="Tools\UEditor\utf8-net\lang\zh-cn\images\music.png" />
     <Content Include="Tools\UEditor\utf8-net\lang\zh-cn\images\upload.png" />
     <Content Include="Tools\UEditor\utf8-net\lang\zh-cn\zh-cn.js" />
-    <Content Include="Tools\UEditor\utf8-net\net\Bin\Newtonsoft.Json.dll" />
-    <Content Include="Tools\UEditor\utf8-net\net\Bin\Newtonsoft.Json.pdb" />
-    <Content Include="Tools\UEditor\utf8-net\net\Bin\Newtonsoft.Json.xml" />
-    <Content Include="Tools\UEditor\utf8-net\net\net.sln" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.pdb" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
     <Content Include="Tools\UEditor\utf8-net\themes\default\css\ueditor.css" />
     <Content Include="Tools\UEditor\utf8-net\themes\default\css\ueditor.min.css" />
     <Content Include="Tools\UEditor\utf8-net\themes\default\dialogbase.css" />
@@ -383,6 +386,9 @@
     <Content Include="Tools\UEditor\utf8-net\ueditor.config.js" />
     <Content Include="Tools\UEditor\utf8-net\ueditor.parse.js" />
     <Content Include="Tools\UEditor\utf8-net\ueditor.parse.min.js" />
+    <Content Include="Tools\xiumi\internal.js" />
+    <Content Include="Tools\xiumi\xiumi-ue-dialog-v5.html" />
+    <Content Include="Tools\xiumi\xiumi-ue-dialog-v5.js" />
     <Content Include="Upload\Image\MonitorTemplate\MonitorImg.png" />
     <Content Include="Upload\Image\QR\QR.png" />
     <Content Include="Web.config" />
@@ -418,7 +424,6 @@
     <Content Include="Views\UEditor\Index.cshtml" />
     <Content Include="Tools\UEditor\utf8-net\net\config.json" />
     <Content Include="Tools\UEditor\utf8-net\net\controller.ashx" />
-    <Content Include="Tools\UEditor\utf8-net\net\README.md" />
     <Content Include="Tools\UEditor\utf8-net\net\Web.config" />
     <Content Include="Tools\UEditor\utf8-net\third-party\jquery-1.10.2.min.map" />
     <Content Include="Tools\UEditor\utf8-net\third-party\video-js\font\vjs.eot" />
@@ -434,7 +439,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Tools\xiumi\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
