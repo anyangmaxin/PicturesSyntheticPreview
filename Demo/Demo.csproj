@@ -387,8 +387,9 @@
     <Content Include="Tools\UEditor\utf8-net\ueditor.parse.js" />
     <Content Include="Tools\UEditor\utf8-net\ueditor.parse.min.js" />
     <Content Include="Tools\xiumi\internal.js" />
-    <Content Include="Tools\xiumi\xiumi-ue-dialog-v5.html" />
+    <Content Include="Tools\UEditor\xiumi-ue-dialog-v5.html" />
     <Content Include="Tools\xiumi\xiumi-ue-dialog-v5.js" />
+    <Content Include="Tools\xiumi\xiumi-ue-v5.css" />
     <Content Include="Upload\Image\MonitorTemplate\MonitorImg.png" />
     <Content Include="Upload\Image\QR\QR.png" />
     <Content Include="Web.config" />
