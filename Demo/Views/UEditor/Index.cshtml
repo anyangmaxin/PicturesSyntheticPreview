@@ -3,5 +3,31 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@section css{
+    <style type="text/css">
+        .logo40 {
+            vertical-align: middle;
+        }
+
+        .tn-footer {
+            font-size: 0.9em;
+        }
+    </style>
+}
+<!-- 加载编辑器的容器 -->
+<script id="container" name="content" type="text/plain">
+    这里写你的初始化内容
+</script>
+@section scripts
+{
+    <!-- 配置文件 -->
+    <script src="~/Tools/UEditor/utf8-net/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script src="~/Tools/UEditor/utf8-net/ueditor.all.min.js"></script>
+
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+}
 
