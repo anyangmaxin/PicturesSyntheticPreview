@@ -6,13 +6,12 @@ using System.Web.Mvc;
 
 namespace Demo.Controllers
 {
-    public class DemoController : Controller
+    public class UEditorController : Controller
     {
-        // GET: Demo
+        // GET: UEditor
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }
